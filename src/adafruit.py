@@ -6,7 +6,7 @@ from Adafruit_IO import Client
 
 
 
-aio = Client('flofi96', 'aio_XVMH80xOMBaKUqjorx3V2Ev4DDjJ')
+aio = Client('flofi96', 'aio_EeZp46JDz64tVrH594hblb2UM3wL')
 
 # Send the value 100 to a feed called 'Foo'.
 #aio.send('LüfterSpeed', 100)
@@ -33,7 +33,7 @@ try:
     while True:
         # Benutzereingabe für die gewünschte Geschwindigkeit (0-100%)
         # speed = float(input("Geben Sie die Geschwindigkeit (0-100%) ein: "))
-        speed = aio.receive('LüfterSpeed')
+        speed = aio.receive('FanSpeed')
         print('Received value: {0}'.format(data.value))
 
 
