@@ -40,6 +40,7 @@ def schreibe_log(datei, messwert):
 
 while True:
     data = DATA.GetMeasures()
+    print("GetMeasures erfolgreich")
     schreibe_log(log_datei, data)
     print("Messwert protokolliert.")
     cTemp = data[0]
