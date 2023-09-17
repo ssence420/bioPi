@@ -4,15 +4,6 @@ import DATA
 
 log_datei = 'log.txt'
 
-while True:
-    try:
-        # Überprüfen, ob die Datei geöffnet werden kann
-        with open(log_datei, 'r+') as _:
-            pass  # Die Datei kann geöffnet werden
-    except FileNotFoundError:
-        print(f"Datei '{log_datei}' wurde nicht gefunden oder konnte nicht geöffnet werden.")
-        break  
-
 # Funktion zum Schreiben der Messwerte in das Log
 def schreibe_log(datei, messwert):
     with open(datei, 'r+') as file:
