@@ -6,7 +6,7 @@ from Adafruit_IO import Client, Feed
 
 
 
-aio = Client('flofi96', 'aio_zKLN00waUPiFUTKKQGHLsSlVy49L')
+aio = Client('flofi96', 'aio_bGjm64y3NNZfoPleMsDAoY0xzMjB')
 
 feed = Feed(name='FanSpeed')
 
