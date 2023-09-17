@@ -10,6 +10,18 @@ log_datei = 'log.txt'
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)
 
+    data = DATA.GetMeasures()
+    print("GetMeasures erfolgreich")
+
+    schreibe_log(log_datei, data)
+    print("Messwert protokolliert.")
+    cTemp = data[0]
+    humidity = data[1]
+
+    print ("MAIN Temperature in Celsius : %.2f C" %cTemp)
+    print ("MAIN Relative Humidity : %.2f %%" %humidity)
+    time.sleep(10) 
+
 
 # Funktion zum Schreiben der Messwerte in das Log
 def schreibe_log(datei, messwert):
@@ -36,15 +48,15 @@ def schreibe_log(datei, messwert):
 
 #GetDaten aus DATA.py
 print ("entering loop")
-while True:
-    data = DATA.GetMeasures()
-    print("GetMeasures erfolgreich")
+# while True:
+    # data = DATA.GetMeasures()
+    # print("GetMeasures erfolgreich")
 
-    schreibe_log(log_datei, data)
-    print("Messwert protokolliert.")
-    cTemp = data[0]
-    humidity = data[1]
+    # schreibe_log(log_datei, data)
+    # print("Messwert protokolliert.")
+    # cTemp = data[0]
+    # humidity = data[1]
 
-    print ("MAIN Temperature in Celsius : %.2f C" %cTemp)
-    print ("MAIN Relative Humidity : %.2f %%" %humidity)
-    time.sleep(10) 
+    # print ("MAIN Temperature in Celsius : %.2f C" %cTemp)
+    # print ("MAIN Relative Humidity : %.2f %%" %humidity)
+    # time.sleep(10)
