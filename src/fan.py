@@ -5,7 +5,7 @@ import time
 GPIO.setmode(GPIO.BCM)
 
 # Definiere den PWM-Pin (BCM-Pin 18)
-pwm_pin = 18
+pwm_pin = 12
 
 # Konfiguriere den Pin als PWM-Ausgang
 GPIO.setup(pwm_pin, GPIO.OUT)

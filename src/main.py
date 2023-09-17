@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 
 # GPIO-Pin für den Lüfter (PWM)
-FAN_PIN = 18
+FAN_PIN = ?
 
 # BME280-Sensor Initialisierung
 bme280 = Adafruit_BME280.Adafruit_BME280()
