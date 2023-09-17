@@ -140,3 +140,7 @@ while True:
     print ("Temperature in Fahrenheit : %.2f F" %fTemp)
     print ("Pressure : %.2f hPa " %pressure)
     print ("Relative Humidity : %.2f %%" %humidity)
+
+    time.sleep(5)
+
+    
