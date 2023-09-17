@@ -1,11 +1,14 @@
 import time
 import datetime
 import DATA
-import webapp
+from webapp import app
+
+
 
 log_datei = 'log.txt'
 
-webapp.StartWeb()
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
 
 
 # Funktion zum Schreiben der Messwerte in das Log

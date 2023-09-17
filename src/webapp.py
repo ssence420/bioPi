@@ -1,5 +1,8 @@
 from flask import Flask, render_template
 
+
+
+
 app = Flask(__name__)
 
 
@@ -12,5 +15,3 @@ def index():
     # Rendern Sie eine einfache HTML-Seite mit dem Inhalt
     return f'<html><body><pre>{log_inhalt}</pre></body></html>'
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
