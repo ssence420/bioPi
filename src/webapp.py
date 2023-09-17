@@ -41,6 +41,6 @@ def sse():
         time.sleep(10)
 
 # Route, um SSE-Events zu streamen
-@app.route('/events')
+@app.route('/')
 def stream():
     return Response(sse(), content_type='text/event-stream')
