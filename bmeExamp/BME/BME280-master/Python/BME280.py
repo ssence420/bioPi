@@ -134,7 +134,7 @@ elif humidity < 0.0 :
     humidity = 0.0
 
 # Output data to screen
-print "Temperature in Celsius : %.2f C" %cTemp
-print "Temperature in Fahrenheit : %.2f F" %fTemp
-print "Pressure : %.2f hPa " %pressure
-print "Relative Humidity : %.2f %%" %humidity
+print ("Temperature in Celsius : %.2f C" %cTemp)
+print ("Temperature in Fahrenheit : %.2f F" %fTemp)
+print ("Pressure : %.2f hPa " %pressure)
+print ("Relative Humidity : %.2f %%" %humidity)
