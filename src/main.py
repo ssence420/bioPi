@@ -1,8 +1,26 @@
 import time
 import datetime
 import DATA
+from flask import Flask, render_template
 
 log_datei = 'log.txt'
+
+
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    # Lesen Sie den Inhalt der log.txt Datei
+    with open('log.txt', 'r') as file:
+        log_inhalt = file.read()
+
+    # Rendern Sie eine einfache HTML-Seite mit dem Inhalt
+    return f'<html><body><pre>{log_inhalt}</pre></body></html>'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
 
 # Funktion zum Schreiben der Messwerte in das Log
 def schreibe_log(datei, messwert):
@@ -32,6 +50,7 @@ def schreibe_log(datei, messwert):
 while True:
     data = DATA.GetMeasures()
     print("GetMeasures erfolgreich")
+
     schreibe_log(log_datei, data)
     print("Messwert protokolliert.")
     cTemp = data[0]
@@ -39,4 +58,4 @@ while True:
 
     print ("MAIN Temperature in Celsius : %.2f C" %cTemp)
     print ("MAIN Relative Humidity : %.2f %%" %humidity)
-    time.sleep(120) 
+    time.sleep(10) 
