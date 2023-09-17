@@ -3,25 +3,27 @@ import datetime
 import DATA
 from webapp import app
 
-
+from threading import Thread 
 
 log_datei = 'log.txt'
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
 
-    data = DATA.GetMeasures()
-    print("GetMeasures erfolgreich")
 
-    schreibe_log(log_datei, data)
-    print("Messwert protokolliert.")
-    cTemp = data[0]
-    humidity = data[1]
 
-    print ("MAIN Temperature in Celsius : %.2f C" %cTemp)
-    print ("MAIN Relative Humidity : %.2f %%" %humidity)
-    time.sleep(10) 
+#Funk für die Messwerterfassung
+def messwerte_sammeln():
+    while True:
+        data = DATA.GetMeasures()
+        print("GetMeasures erfolgreich")
 
+        schreibe_log(log_datei, data)
+        print("Messwert protokolliert.")
+        cTemp = data[0]
+        humidity = data[1]
+
+        print ("MAIN Temperature in Celsius : %.2f C" %cTemp)
+        print ("MAIN Relative Humidity : %.2f %%" %humidity)
+        time.sleep(10)
 
 # Funktion zum Schreiben der Messwerte in das Log
 def schreibe_log(datei, messwert):
@@ -46,17 +48,11 @@ def schreibe_log(datei, messwert):
         file.write(inhalt)
 
 
-#GetDaten aus DATA.py
-print ("entering loop")
-# while True:
-    # data = DATA.GetMeasures()
-    # print("GetMeasures erfolgreich")
+# start messwertterfassung in thread
+if __name__ == '__main__':
+    
+    data_thread = Thread(target=messwerte_sammeln)
+    data_thread.start()
 
-    # schreibe_log(log_datei, data)
-    # print("Messwert protokolliert.")
-    # cTemp = data[0]
-    # humidity = data[1]
-
-    # print ("MAIN Temperature in Celsius : %.2f C" %cTemp)
-    # print ("MAIN Relative Humidity : %.2f %%" %humidity)
-    # time.sleep(10)
+    #start flask
+    app.run(host='0.0.0.0', port=8080)
