@@ -3,7 +3,7 @@
 # BME280
 # This code is designed to work with the BME280_I2CS I2C Mini Module available from ControlEverything.com.
 # https://www.controleverything.com/content/Humidity?sku=BME280_I2CS#tabs-0-product_tabset-2
-
+import time
 import smbus
 
 # Get I2C bus
