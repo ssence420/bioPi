@@ -35,7 +35,7 @@ def schreibe_log(datei, messwert):
 
 
 #GetDaten aus DATA.py
-
+print ("entering loop")
 while True:
     data = DATA.GetMeasures()
     print("GetMeasures erfolgreich")
