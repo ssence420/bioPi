@@ -2,7 +2,7 @@ import time
 import datetime
 import DATA
 
-log_datei = 'LOG.txt'
+log_datei = 'log.txt'
 
 while True:
     try:
