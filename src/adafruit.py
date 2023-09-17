@@ -2,11 +2,15 @@ import RPi.GPIO as GPIO
 import time
 
 # Import library and create instance of REST client.
-from Adafruit_IO import Client
+from Adafruit_IO import Client, Feed
 
 
 
-aio = Client('flofi96', 'aio_EeZp46JDz64tVrH594hblb2UM3wL')
+aio = Client('flofi96', 'aio_zKLN00waUPiFUTKKQGHLsSlVy49L')
+
+feed = Feed(name='FanSpeed')
+
+result = aio.create_feed(feed)
 
 # Send the value 100 to a feed called 'Foo'.
 #aio.send('LüfterSpeed', 100)
@@ -16,7 +20,8 @@ aio = Client('flofi96', 'aio_EeZp46JDz64tVrH594hblb2UM3wL')
 # Note that all values retrieved from IO are strings so you might need to convert
 # them to an int or numeric type if you expect a number.
 
-
+data = aio.feeds('FanSpeed')
+print('Received value: {0}'.format(data.value))
 
 
 # Setze den GPIO-Modus auf BCM
