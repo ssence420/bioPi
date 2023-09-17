@@ -52,6 +52,7 @@ def schreibe_log(datei, messwert):
 if __name__ == '__main__':
     
     data_thread = Thread(target=messwerte_sammeln)
+    data_thread.daemon = True
     data_thread.start()
 
     #start flask

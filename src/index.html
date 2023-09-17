@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messwerte</title>
+</head>
+<body>
+    <h1>Messwerte</h1>
+    <div id="messwerte"></div>
+    <script>
+        const eventSource = new EventSource('/events');
+
+        eventSource.onmessage = function(event) {
+            const messwerteDiv = document.getElementById('messwerte');
+            messwerteDiv.innerHTML = `Messwerte: ${event.data}`;
+        };
+    </script>
+</body>
+</html>
