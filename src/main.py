@@ -2,22 +2,8 @@ import time
 import datetime
 import DATA
 
-
-#GetDaten aus DATA.py
-data = DATA.GetMeasures()
-
-cTemp = data[0]
-humidity = data[1]
-
-print ("MAIN Temperature in Celsius : %.2f C" %cTemp)
-print ("MAIN Relative Humidity : %.2f %%" %humidity)
-
-#LOG schreiben
-# Dateiname für das Log
 log_datei = 'LOG.txt'
 
-# Schreibe den Messwert ins Log und verschiebe ältere Messwerte
-schreibe_log(log_datei, data)
 # Funktion zum Schreiben der Messwerte in das Log
 def schreibe_log(datei, messwert):
     with open(datei, 'r+') as file:
@@ -41,3 +27,15 @@ def schreibe_log(datei, messwert):
         file.write(inhalt)
 
 
+#GetDaten aus DATA.py
+
+while True:
+    data = DATA.GetMeasures()
+    schreibe_log(log_datei, data)
+    print("Messwert protokolliert.")
+    cTemp = data[0]
+    humidity = data[1]
+
+    print ("MAIN Temperature in Celsius : %.2f C" %cTemp)
+    print ("MAIN Relative Humidity : %.2f %%" %humidity)
+    time.sleep(120) 
