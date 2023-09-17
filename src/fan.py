@@ -14,7 +14,7 @@ pwm = GPIO.PWM(pwm_pin, 1000)  # 1000 Hz Frequenz
 try:
     while True:
         # Lüftergeschwindigkeiten in Prozent und Pulsweiten in Sekunden
-        speeds = [25, 50, 75]  # Geschwindigkeiten in Prozent
+        speeds = [25, 0, 100]  # Geschwindigkeiten in Prozent
         for speed in speeds:
             # Berechnung der Pulsweiten basierend auf der Geschwindigkeit
             T_on = (speed / 100) * 0.01  # Pulsweite in Sekunden (1% = 0,01s)
@@ -23,7 +23,7 @@ try:
             # Starte das PWM-Signal mit der berechneten Pulsweite
             pwm.start(speed)
             print(f"Speed: {speed}%")
-            time.sleep(5)  # Läuft für 5 Sekunden
+            time.sleep(10)  # Läuft für 5 Sekunden
 
             # Stoppe das PWM-Signal
             pwm.stop()
